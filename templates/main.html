@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="{% static 'assets/favicon.ico' %}" type="image/x-icon" />
+    <link rel="stylesheet" href="{% static 'styles/style.css' %}" />
+
+    <!-- Bootstrap CSS (from CDN) -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <title>StudyBuddy - Find study partners around the world!</title>
+</head>
+
+<body>
+    <!-- Navbar Section -->
+    {% include 'navbar.html' %}
+
+    <!-- Bootstrap Carousel -->
+    <header class="mb-4">
+        <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            </div>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="{% static 'images/slider1.gif' %}" class="d-block w-100" alt="StudyBuddy Slide 1">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Welcome to StudyBuddy</h5>
+                        <p>Find your perfect study partner!</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="{% static 'images/slider2.jpg' %}" class="d-block w-100" alt="StudyBuddy Slide 2">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Connect Globally</h5>
+                        <p>Expand your learning horizons.</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="{% static 'images/slider3.jpg' %}" class="d-block w-100" alt="StudyBuddy Slide 3">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Achieve More Together</h5>
+                        <p>Collaboration leads to success.</p>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Flash Messages Section -->
+    {% if messages %}
+    <div class="container">
+        <ul class="alert alert-info">
+            {% for message in messages %}
+            <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+    {% endif %}
+
+    <!-- Main Content Area -->
+    <main class="container py-4">
+        {% block content %}
+        <div class="text-center">
+            <img src="{% static 'images/study-partner.jpg' %}" alt="Study Partners Image" class="img-fluid rounded shadow">
+        </div>
+        {% endblock %}
+    </main>
+
+    <!-- Footer Section -->
+    <!-- Footer Section -->
+<footer class="text-center text-white py-4" style="background-color: #343a40;">
+    <div class="container">
+      <p class="mb-2">© 2025 Live Study Room. All Rights Reserved.</p>
+      <div>
+        <a href="#" class="text-white me-3">About</a>
+        <a href="#" class="text-white me-3">Features</a>
+        <a href="#" class="text-white me-3">Contact</a>
+        <a href="#" class="text-white me-3">Privacy Policy</a>
+      </div>
+      <div class="mt-3">
+        <a href="#" class="text-white me-3"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" class="text-white me-3"><i class="fab fa-twitter"></i></a>
+        <a href="#" class="text-white me-3"><i class="fab fa-instagram"></i></a>
+        <a href="#" class="text-white me-3"><i class="fab fa-linkedin"></i></a>
+      </div>
+    </div>
+  
+
+    <!-- Bootstrap JS (from CDN) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="{% static 'js/script.js' %}"></script>
+</body>
+
+</html>
